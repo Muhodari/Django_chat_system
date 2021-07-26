@@ -240,7 +240,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
-<!--	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -280,32 +280,6 @@
 
 
 <!--  get More  -->
-<script>
-$(document).ready(function(){
-setInterval(function(){
-$.ajax({
-type:'GET',
-url:"/getMessages/{{room}}/",
-success:function(response){
-	console.log(response);
-	$("#display").empty();
-
-	for(var key in response.messages){
-		var temp="<div class='msg_cotainer'><b>"+response.messages[key].user +"<b><p>"+
-			response.messages[key].value +"</p> <span class='msg_time'>"+response.messages[key].date +
-				"</span></div>";
-			$("#display").append(temp)
-}
-},
-
-error: function(response){
-	alert("Any Error Occured")
-}
-});
-
-},1000)
-})
-</script>
 
 						<div class="card-body msg_card_body">
 
@@ -317,6 +291,38 @@ error: function(response){
 									<span class="msg_time">8:40 AM, Today</span>
 								</div> -->
 							</div>
+<!--						 script yo display  element	-->
+							<script>
+                      $(document).ready(function(){
+                      setInterval(function(){
+
+                     $.ajax({
+                     type:'GET',
+                     url:"/getMessages/{{room}}/",
+                     success:function(response){
+	                 console.log(response);
+	                 $("#display").empty();
+
+	                for(var key in response.messages){
+		             var temp="<div class='msg_cotainer'><b>"+response.messages[key].user +"<b><p>"+
+			         response.messages[key].value +"</p> <span class='msg_time'>"+response.messages[key].date +
+				     "</span></div>";
+			         $("#display").append(temp)
+                    }
+                    },
+
+           error: function(response){
+	          alert("Any Error Occured")
+            }
+           });
+          },1000)
+          })
+</script>
+
+
+
+
+
 
                    <!-- right side  -->
 							<div class="d-flex justify-content-end mb-4">
