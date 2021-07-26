@@ -279,6 +279,33 @@
 
 
 
+<!--  get More  -->
+<script>
+$(document).ready(function(){
+setInterval(function(){
+$.ajax({
+type:'GET',
+url:"/getMessages/{{room}}/ ",
+
+success:function(response){
+
+	$('#display').empty();
+
+	for(var key in response.messages){
+		var temp="<div class='container darker'><b>"+response.messages[key] +"</div>"
+			$('#display').append(temp)
+	}
+},
+
+error: function(response){
+	alert("Any Error Occured")
+}
+});
+
+},1000)
+})
+</script>
+
 						<div class="card-body msg_card_body">
 
 							<!--left side-->
@@ -347,7 +374,7 @@
     csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
     },
     success:function(data){
-    alert(data)
+// alert(data)
     }
 	});
 document.getElementById('message').value= ''
