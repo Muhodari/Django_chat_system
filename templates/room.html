@@ -3,16 +3,16 @@
 <head>
     <meta charset="utf-8">
     <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Elegant Bootstrap 4  message chat box template - Bootsnipp.com</title>
+    <title>Django Group Chat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
         	body,html{
 			height: 100%;
 			margin: 0;
-			background: #7F7FD5;
-	       background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-	        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+			background: #e3e3f1;
+	         background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+	        background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); 
 		}
 
 		.chat{
@@ -30,7 +30,7 @@
 			white-space: nowrap;
 		}
 		.msg_card_body{
-			overflow-y: auto;
+			overflow-y: auto; 
 		}
 		.card-header{
 			border-radius: 15px 15px 0 0 !important;
@@ -156,34 +156,41 @@
 	}
 	.msg_cotainer{
 		margin-top: auto;
-		margin-bottom: auto;
+		margin-bottom:12px;
 		margin-left: 10px;
-		border-radius: 30px;
-		background-color: #82ccdd;
+		border-radius: 25px;
+		background-color: #ffffff;
 		padding: 10px;
-		position: relative;
+		position:relative;
+		display:block;
+		max-width:40%;
 
+	}
+	#display{
+		display: block;
 	}
 	.msg_cotainer_send{
 		margin-top: auto;
-		margin-bottom: auto;
+		margin-bottom:12px;
 		margin-right: 10px;
 		border-radius: 25px;
 		background-color: #78e08f;
 		padding: 10px;
 		position: relative;
+		display:block;
+		margin-left: 60%;
 	}
 	.msg_time{
 		position: absolute;
-		left: 0;
-		bottom: -15px;
-		color: rgba(255,255,255,0.5);
+		left:auto;
+		bottom: 3px;
+		color: rgba(10, 10, 10, 0.5);
 		font-size: 10px;
 	}
 	.msg_time_send{
 		position: absolute;
-		right:0;
-		bottom: -15px;
+		right:12px;
+		bottom: 3px;
 		color: rgba(255,255,255,0.5);
 		font-size: 10px;
 	}
@@ -246,11 +253,11 @@
 </head>
 <body>
 
-	<!--Coded With Love By Mutiullah Samim-->
+	<!--Coded With-->
 		<div class="container-fluid h-100">
 			<div class="row justify-content-center h-100">
 
-				<div class="col-md-8 col-xl-6 chat">
+				<div class="col-md-6 col-xl-8 chat">
 					<div class="card">
 						<div class="card-header msg_head">
 							<div class="d-flex bd-highlight">
@@ -325,7 +332,7 @@
 						<div class="card-body msg_card_body">
 
 							<!--left side-->
-							<div class="d-flex justify-content-start mb-6" id="display">
+							<div class=" justify-content-start mb-6" id="display">
 <!--
 								<div class="msg_cotainer">
 									Hi, how are you samim?
@@ -334,7 +341,7 @@
 							</div>
 
                    <!-- right side  -->
-							<div class="d-flex justify-content-end mb-4" id="display2">
+							<div class=" justify-content-end mb-4" id="display2">
 <!--								<div class="msg_cotainer_send" id="display2">-->
 <!--									Hi Khalid i am good tnx how about you?-->
 <!--									<span class="msg_time_send">8:55 AM, Today</span>-->
