@@ -7,8 +7,16 @@ def home(request):
     return render(request, 'home.html')
 
 
-def room(request,room):
-    return render(request, 'room.html')
+def room(request, room):
+    username = request.GET.get('username')
+    room_detail = request.GET.get(name=room)
+
+    return render(request, 'room.html', {
+        'username': username,
+        'room': 'room',
+        'room_details':room_detail
+
+    })
 
 
 def checkview(request):
