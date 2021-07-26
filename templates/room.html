@@ -240,7 +240,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<!--	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>-->
 
 </head>
 <body>
@@ -285,16 +285,17 @@ $(document).ready(function(){
 setInterval(function(){
 $.ajax({
 type:'GET',
-url:"/getMessages/{{room}}/ ",
-
+url:"/getMessages/{{room}}/",
 success:function(response){
-
-	$('#display').empty();
+	console.log(response);
+	$("#display").empty();
 
 	for(var key in response.messages){
-		var temp="<div class='container darker'><b>"+response.messages[key] +"</div>"
-			$('#display').append(temp)
-	}
+		var temp="<div class='msg_cotainer'><b>"+response.messages[key].user +"<b><p>"+
+			response.messages[key].value +"</p> <span class='msg_time'>"+response.messages[key].date +
+				"</span></div>";
+			$("#display").append(temp)
+}
 },
 
 error: function(response){
@@ -309,14 +310,12 @@ error: function(response){
 						<div class="card-body msg_card_body">
 
 							<!--left side-->
-							<div class="d-flex justify-content-start mb-4">
-								<div class="img_cont_msg">
-									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
-								</div>
+							<div class="d-flex justify-content-start mb-4" id="display">
+<!-- 								
 								<div class="msg_cotainer">
 									Hi, how are you samim?
 									<span class="msg_time">8:40 AM, Today</span>
-								</div>
+								</div> -->
 							</div>
 
                    <!-- right side  -->
@@ -343,7 +342,7 @@ error: function(response){
 									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
 								</div>
 								<input type="hidden" name="username" id="username" value="{{username}}">
-								<input type="hidden" name="room_id" id="room_id" value="room_details.id">
+								<input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}">
 								<input type="text" name="message"  id="message" class="form-control type_msg" placeholder="Type your message...">
 								<div class="input-group-append">
 									<span class="input-group-text send_btn">
