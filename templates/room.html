@@ -356,8 +356,7 @@
 									<span class="input-group-text send_btn">
 										<button type="submit"><i class="fas fa-location-arrow"></i></button></span>
 								</div>
-
-
+								
 							</div>
 							</form>
 
@@ -373,15 +372,14 @@
 	$(document).on('submit','#post-form',function(e){
 	e.preventDefault();
 	$.ajax({
-    type:'POST'
-    url:'/send'
+    type:'POST',
+    url:'/send',
     data:{
     username:$('#username').val(),
-    room_id:$('#room_id).val(),
-    message:$('#message').val()
+    room_id:$('#room_id').val(),
+    message:$('#message').val(),
     csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
     },
-    alert(data)
     success:function(data){
     alert(data)
     }
@@ -390,7 +388,20 @@ document.getElementById('message').value= ''
 	});
 </script>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+$('#action_menu_btn').click(function(){
+	$('.action_menu').toggle();
+});
+	});
+</script>
 
 
 </html>
+
+
+
+
+
+
 

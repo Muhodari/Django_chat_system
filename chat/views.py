@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Room, Messages
+from .models import Room,Messages
 from django.http import HttpResponse
 
 
@@ -36,8 +36,8 @@ def send(request):
     username = request.POST['username']
     message = request.POST['message']
     room_id = request.POST['room_id']
-    print(username, message, room_id)
+    print(message, room_id, username)
 
-    new_message = Messages.objects.create(value=message, user=username, room_id=room_id)
+    new_message = Messages.objects.create(value=message, user=username, room=room_id)
     new_message.save()
     return HttpResponse('Message sent successfully')
